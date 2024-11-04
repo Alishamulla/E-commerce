@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bakecraft - E-Commerce Clone</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 2.0;
+            color: hsl(0, 0%, 20%);
+            background-color: #FFFFFF;
+        }
+
+        /* Header Styling */
+        header {
+            background:#FFD1DC;
+            color: #000000;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            background: #444;
+            padding: 10px;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: rgba(255, 255, 255, 0.612);
+            text-decoration: none;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: url('https://mir-s3-cdn-cf.behance.net/project_modules/fs/3459ff29375409.56d0e479f0df3.jpg');
+            background-size: cover;
+            color: #000000;
+            text-align: center;
+            padding: 200px 30px;
+        }
+
+        .cta-button {
+            background-color: #FFD1DC ;
+            color: #000000;
+            border: none;
+            padding: 10px 40px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background-color: #444;
+        }
+
+        /* Product Listing Page */
+        .product-listing {
+            padding: 20px;
+            background: #fff;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            border: 1px  solid #ccc;
+            border-radius: 2px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .product-card img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        .add-to-cart {
+            background-color:#FFD1DC;
+            color: #000000;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .add-to-cart:hover {
+            background-color: #FFD1DC ;
+        }
+
+        /* Search Bar */
+        .search-bar {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .search-input {
+            padding: 8px;
+            width: 60%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .search-button {
+            padding: 8px 15px;
+            background-color: #FFD1DC;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Footer Styling */
+        footer {
+            padding: 10px;
+            text-align: center;
+            background: #FFD1DC;
+            color:#000000;
+        }
+
+        footer .social-links a {
+            color:#d97b1f;
+            margin-right: 10px;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>BakeCraft</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#cart">Cart</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Handcrafted Goodies,Freshly Baked</h1>
+            <button class="cta-button">Place your order now </button>
+        </div>
+    </section>
+
+    <!-- Search Bar -->
+    <section class="search-bar">
+        <input type="text" id="search-input" class="search-input" placeholder="Search for products...">
+        <button onclick="filterProducts()" class="search-button">Search</button>
+    </section>
+
+    <!-- Product Listing -->
+    <section class="product-listing" id="products">
+        <h3 style="background-color:rgba(248, 225, 229, 0.973)">USE COUPON:<span style ="color:rgb(223, 12, 146);"> FIRSTORDER</span> on your first order and get <span style ="color:rgb(223, 12, 146);">Flat 10% OFF.</span> *No Mininmum Order Value Required.</h3>
+        <h2 style ="color:rgb(165, 71, 42);">Items</h2>
+        <div class="grid" id="product-grid"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <img src="https://mir-s3-cdn-cf.behance.net/projects/202/3f424629375409.Y3JvcCwxNjQzLDEyODUsMzc4LDg1.jpg" alt="Description of the image" style="width: 100px; height: auto;">
+
+        <p> BakeCraft<br>
+            Tilakwadi,<br>
+            Belgaum-590006.
+            <p>&#9742;0831-246781 <br>
+                &#128231; bakescraft@gmail.com
+            </p><br>
+         <div class="social-links">
+            <a href="#"> Privacy Policy|Terms of service|Refund policy</a><br>
+
+            <p> Follow us:</p>
+             <a href="#">Facebook</a>   
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a><br>
+            <img src="https://th.bing.com/th/id/OIP.g-PMKXEGdnEU8sBg9_X8uwHaHa?rs=1&pid=ImgDetMain" alt="Description of the image" style="width: 40px; height: 10; border-radius: 50%;">
+            <img src="https://logos-world.net/wp-content/uploads/2020/04/Twitter-Symbol.png" alt="Description of the image" style="width: 70px; height: 40; border-radius: 50%;">
+            <img src="https://png.pngtree.com/png-clipart/20230401/original/pngtree-three-dimensional-instagram-icon-png-image_9015419.png" alt="Description of the image" style="width: 40px; height: 10; border-radius: 10%;"> <br><br>
+            <div class="photo-section">
+                <hr class="line">
+              </div>
+            <p>&copy; 2024 BakeCraft. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Sample product data array with placeholder images
+        const products = [
+            { id: 1, name: 'Brownie', price: 79.99, image: 'https://www.ambitiouskitchen.com/wp-content/uploads/2017/05/tahinibrownies-3.jpg' },
+            { id: 9, name: 'Strawberry Donut', price: 89.99, image: 'https://stephaniessweets.com/wp-content/uploads/2022/07/IMG_8621.jpg' } ,
+            { id: 2, name: 'Lotus Biscoff Cake', price: 299.99, image: 'https://scottishscran.com/wp-content/uploads/2022/03/Lotus-Biscoff-Cheesecake-Recipe-06.jpg' },
+            { id: 3, name: 'Apple tart', price: 99.99, image: 'https://therecipecritic.com/wp-content/uploads/2021/08/appletart-2-667x1000.jpg' },
+            { id: 4, name: 'Pistachio Croissant', price: 149.99, image: 'https://i.pinimg.com/736x/09/c0/e8/09c0e8f6794201b1548c69da692daf4f.jpg' },
+            { id: 5, name: 'Mango Charlotte', price: 499.99, image: 'https://th.bing.com/th/id/OIP.3BA5m4JPdgWDd_a72jXVrwHaLH?rs=1&pid=ImgDetMain' },
+            { id: 6, name: 'Macrons', price: 399.99, image: 'https://chelsweets.com/wp-content/uploads/2021/01/best-photo-stacked-lavender-macarons-on-plate-scaled.jpg' },
+            { id: 7, name: 'Butterscotch Cake', price: 599.99, image: 'https://i.pinimg.com/originals/46/e3/a2/46e3a2c55124036a6ffe623a71949be7.jpg' },
+            { id: 8, name: 'Assorted cupcakes', price: 349.99, image: 'https://images.eatsmarter.com/sites/default/files/styles/max_size/public/assorted-cupcakes-for-a-party-467573.jpg' },
+            { id: 8, name: 'Tiramisu', price: 799.99, image: 'https://baranbakery.com/wp-content/uploads/2023/07/Tiramisu-Cake-12.jpg' }
+                   ];
+
+        // Function to render products dynamically
+        function renderProducts(productArray) {
+            const productGrid = document.getElementById('product-grid');
+            productGrid.innerHTML = ''; // Clear existing products
+
+            productArray.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.classList.add('product-card');
+
+                productCard.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}">
+                    <h3>${product.name}</h3>
+                    <p>Price: ₹${product.price.toFixed(2)}</p>
+                    <button class="add-to-cart" onclick="addToCart(${product.id})">Add to Cart</button>
+                `;
+
+                productGrid.appendChild(productCard);
+            });
+        }
+
+        // Initial render of all products
+        renderProducts(products);
+
+        // Function to filter products based on search input
+        function filterProducts() {
+            const searchInput = document.getElementById('search-input').value.toLowerCase();
+            const filteredProducts = products.filter(product =>
+                product.name.toLowerCase().includes(searchInput)
+            );
+            renderProducts(filteredProducts);
+        }
+
+        // Function to simulate adding a product to the cart
+        function addToCart(productId) {
+            alert('Product ${productId} added to cart!');
+        }
+    </script>
+</body>
+</html>
